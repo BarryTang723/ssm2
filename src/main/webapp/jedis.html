@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ui/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            $.get("worker/showIntention.do",{},function (data) {
+                //[{"id":1,"name":"Java程序员"},{"id":2,"name":"php程序员"},{"id":3,"name":"C++程序员"},{"id":4,"name":"产品经理"}]
+                var intention=$("#intention");
+                $(data).each(function () {
+                    var option="<option name='"+this.id+"'>"+this.name+"</option>";
+                    intention.append(option);
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <select id="intention">
+        <option>--请选择职业--</option>
+    </select>
+</body>
+</html>
